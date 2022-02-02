@@ -1,34 +1,36 @@
-import * as React from 'react'
-import Link from 'next/link'
+import * as React from "react";
+import Link from "next/link";
 
-import { motion } from 'framer-motion'
-import { images } from '../constants'
+import { motion } from "framer-motion";
+import { images } from "../constants";
 
 const transition = {
   duration: 1,
   ease: [0.43, 0.13, 0.23, 0.96],
-}
+};
 
 const imageVariants = {
-  exit: { y: '50%', opacity: 0, transition },
+  exit: { y: "50%", opacity: 0, transition },
   enter: {
-    y: '0%',
+    y: "0%",
     opacity: 1,
     transition,
   },
-}
+};
 
 const backVariants = {
   exit: { x: 100, opacity: 0, transition },
   enter: { x: 0, opacity: 1, transition: { delay: 1, ...transition } },
-}
+};
 
-const SingleImage = ({ index }) => (
+const SingleImage = (config: { index: number }) => (
   <>
     <motion.div className="single" initial="exit" animate="enter" exit="exit">
       <motion.img
         variants={imageVariants}
-        src={`https://images.unsplash.com/${images[index]}?auto=format&fit=crop&w=1500`}
+        src={`https://images.unsplash.com/${
+          images[config.index]
+        }?auto=format&fit=crop&w=1500`}
         alt="The Barbican"
       />
       <motion.div className="back" variants={backVariants}>
@@ -63,6 +65,6 @@ const SingleImage = ({ index }) => (
 `}
     </style>
   </>
-)
+);
 
-export default SingleImage
+export default SingleImage;
