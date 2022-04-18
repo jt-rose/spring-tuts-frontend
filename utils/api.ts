@@ -22,6 +22,9 @@ export const deleteApplication = (appId: number) => {
   return axios.delete(endpoint + "/" + String(appId));
 };
 
-export const updateApplication = (appId: number, input: ApplicationInput) => {
-  return axios.put(endpoint + "/" + String(appId), input);
-};
+// use currying to preload id number on update query
+// so the same query type signature can be supplied to the ApplicationForm
+export const updateApplication =
+  (appId: number) => (input: ApplicationInput) => {
+    return axios.put(endpoint + "/" + String(appId), input);
+  };

@@ -25,7 +25,7 @@ const Tracker = () => {
       interview: false,
       notes: "is this thing on?",
     });
-    updateApplication(1, {
+    updateApplication(1)({
       companyName: "ACME UPDATED",
       position: "Updated Position",
       website: "some-site",
