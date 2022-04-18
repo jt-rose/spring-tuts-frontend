@@ -1,5 +1,6 @@
 export interface ApplicationInput {
   companyName: string;
+  position: string;
   appliedOn: Date;
   website: string;
   interview: boolean;
