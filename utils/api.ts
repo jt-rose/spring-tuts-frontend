@@ -25,10 +25,14 @@ export interface ApplicationData extends ApplicationInput {
   id: number;
 }
 
-export const createApplication = (data: ApplicationInput) => {
-  return axios.post(endpoint, data);
+export const createApplication = (input: ApplicationInput) => {
+  return axios.post(endpoint, input);
 };
 
 export const deleteApplication = (appId: number) => {
   return axios.delete(endpoint + "/" + String(appId));
+};
+
+export const updateApplication = (appId: number, input: ApplicationInput) => {
+  return axios.put(endpoint + "/" + String(appId), input);
 };

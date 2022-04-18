@@ -5,6 +5,7 @@ import {
   getAllApplications,
   getSingleApplication,
   ApplicationData,
+  updateApplication,
 } from "../utils/api";
 
 const Tracker = () => {
@@ -21,6 +22,13 @@ const Tracker = () => {
       website: "abc.co",
       interview: false,
       notes: "is this thing on?",
+    });
+    updateApplication(1, {
+      companyName: "ACME UPDATED",
+      website: "some-site",
+      interview: true,
+      appliedOn: new Date(),
+      notes: "updated!",
     });
   }, []);
   return (
