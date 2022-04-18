@@ -19,6 +19,7 @@ const Tracker = () => {
     getSingleApplication(1).then((res) => console.log(res.data));
     createApplication({
       companyName: "ABC",
+      position: "React / Spring Boot Engineer",
       appliedOn: new Date(),
       website: "abc.co",
       interview: false,
@@ -26,6 +27,7 @@ const Tracker = () => {
     });
     updateApplication(1, {
       companyName: "ACME UPDATED",
+      position: "Updated Position",
       website: "some-site",
       interview: true,
       appliedOn: new Date(),
