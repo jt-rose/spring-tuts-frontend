@@ -9,6 +9,7 @@ import {
 import { ApplicationData } from "types/Application";
 import { Button } from "@mui/material";
 import { Head } from "components/Head";
+import { ApplicationAccordion } from "components/ApplicationAccordion";
 
 const Tracker = () => {
   const [data, setData] = useState<ApplicationData[]>([]);
@@ -47,6 +48,7 @@ const Tracker = () => {
           </>
         ))}
       </ul>
+      <ApplicationAccordion data={data} />
     </>
   );
 };
