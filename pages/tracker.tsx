@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import {
   createApplication,
+  deleteApplication,
   getAllApplications,
   getSingleApplication,
+  ApplicationData,
 } from "../utils/api";
 
 const Tracker = () => {
-  const [data, setData] = useState<{ companyName?: string }[]>([]);
+  const [data, setData] = useState<ApplicationData[]>([]);
   useEffect(() => {
     getAllApplications()
       //.get("https://murmuring-lowlands-54876.herokuapp.com/apps")
@@ -25,8 +27,13 @@ const Tracker = () => {
     <>
       <h1>Hi Everybody!</h1>
       <ul>
-        {data.map((d) => (
-          <li>{d.companyName ? d.companyName : "NA"}</li>
+        {data.map((d, index) => (
+          <>
+            <li key={index + "-application-data"}>
+              {d.companyName ? d.companyName : "NA"}
+            </li>
+            <button onClick={() => deleteApplication(d.id)}>X</button>
+          </>
         ))}
       </ul>
     </>

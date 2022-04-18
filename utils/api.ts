@@ -13,7 +13,7 @@ export const getSingleApplication = (appId: number) => {
   return axios.get(endpoint + "/" + String(appId));
 };
 
-interface ApplicationData {
+export interface ApplicationInput {
   companyName: string;
   appliedOn: Date;
   website: string;
@@ -21,6 +21,14 @@ interface ApplicationData {
   notes: string;
 }
 
-export const createApplication = (data: ApplicationData) => {
+export interface ApplicationData extends ApplicationInput {
+  id: number;
+}
+
+export const createApplication = (data: ApplicationInput) => {
   return axios.post(endpoint, data);
+};
+
+export const deleteApplication = (appId: number) => {
+  return axios.delete(endpoint + "/" + String(appId));
 };
