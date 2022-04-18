@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ApplicationInput } from "types/Application";
 
 const endpoint =
   process.env.NODE_ENV === "production"
@@ -12,18 +13,6 @@ export const getAllApplications = () => {
 export const getSingleApplication = (appId: number) => {
   return axios.get(endpoint + "/" + String(appId));
 };
-
-export interface ApplicationInput {
-  companyName: string;
-  appliedOn: Date;
-  website: string;
-  interview: boolean;
-  notes: string;
-}
-
-export interface ApplicationData extends ApplicationInput {
-  id: number;
-}
 
 export const createApplication = (input: ApplicationInput) => {
   return axios.post(endpoint, input);

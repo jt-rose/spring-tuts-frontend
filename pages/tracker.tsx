@@ -4,9 +4,9 @@ import {
   deleteApplication,
   getAllApplications,
   getSingleApplication,
-  ApplicationData,
   updateApplication,
 } from "../utils/api";
+import { ApplicationData } from "types/Application";
 
 const Tracker = () => {
   const [data, setData] = useState<ApplicationData[]>([]);
