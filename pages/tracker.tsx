@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { getAllApplications, getSingleApplication } from "../utils/api";
+import {
+  createApplication,
+  getAllApplications,
+  getSingleApplication,
+} from "../utils/api";
 
 const Tracker = () => {
   const [data, setData] = useState<{ companyName?: string }[]>([]);
@@ -9,6 +13,13 @@ const Tracker = () => {
       .then((res) => setData(res.data));
 
     getSingleApplication(1).then((res) => console.log(res.data));
+    createApplication({
+      companyName: "ABC",
+      appliedOn: new Date(),
+      website: "abc.co",
+      interview: false,
+      notes: "is this thing on?",
+    });
   }, []);
   return (
     <>
