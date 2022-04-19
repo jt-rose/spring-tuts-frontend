@@ -1,3 +1,5 @@
+import { AxiosResponse } from "axios";
+
 export interface ApplicationInput {
   companyName: string;
   position: string;
@@ -10,3 +12,7 @@ export interface ApplicationInput {
 export interface ApplicationData extends ApplicationInput {
   id: number;
 }
+
+export type CreateOrUpdateQuery = (
+  input: ApplicationInput
+) => Promise<AxiosResponse<any, any>>;
