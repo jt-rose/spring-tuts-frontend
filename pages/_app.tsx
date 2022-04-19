@@ -1,6 +1,8 @@
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { AppProps } from "next/app";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
 function handleExitComplete() {
   if (typeof window !== "undefined") {
@@ -12,11 +14,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   return (
     <>
-      <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
-        <Component {...pageProps} key={router.route} />
-      </AnimatePresence>
-      <style>
-        {`
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
+        <style>
+          {`
         body {
           padding: 0;
           margin: 0;
@@ -30,7 +33,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           color: #222;
         }
       `}
-      </style>
+        </style>
+      </LocalizationProvider>
     </>
   );
 }
