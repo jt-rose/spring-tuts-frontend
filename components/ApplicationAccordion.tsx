@@ -11,7 +11,7 @@ export const ApplicationAccordion = (props: { data: ApplicationData[] }) => {
   return (
     <div>
       {props.data.map((app, index) => (
-        <Accordion>
+        <Accordion key={app.position + "-" + index}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls={`panel${index}a-content`}
